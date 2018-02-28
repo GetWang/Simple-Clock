@@ -1,0 +1,205 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  font-family: Arial, helvetica, sans-serif;
+  background: #7a726f;
+  background: radial-gradient(circle, #c9c2b6, #7a726f);
+  background: -webkit-radial-gradient(circle, #c9c2b6, #7a726f);
+  background: -moz-radial-gradient(circle, #c9c2b6, #7a726f);
+  background: -o-radial-gradient(circle, #c9c2b6, #7a726f);
+}
+.clock {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 193px;
+  height: 193px;
+  margin: auto;
+  background: #f0f1e9;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), inset 0 3px rgba(255, 255, 255, 0.5),
+              inset 0 -4px rgba(0, 0, 0, 0.1);
+}
+.clock::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 130px;
+  height: 130px;
+  margin: auto;
+  border-radius: 50%;
+  background: #e9eae2;
+  background: linear-gradient(#e9eae2, #f5f5ec);
+  background: -webkit-linear-gradient(#e9eae2, #f5f5ec);
+  background: -moz-linear-gradient(#e9eae2, #f5f5ec);
+  background: -o-linear-gradient(#e9eae2, #f5f5ec);
+}
+.numbers, .clockwise {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.numbers ul {
+  list-style: none;
+}
+.numbers ul li {
+  position: absolute;
+  width: 1.5em;
+  height: 1.5em;
+  text-align: center;
+  line-height: 1.5em;
+  font-size: 1.3em;
+  color: #a5a595;
+}
+.numbers ul li:first-child {
+  left: 50%;
+  margin-left: -0.75em;
+}
+.numbers ul li:nth-child(2) {
+  top: 50%;
+  right: 0;
+  margin-top: -0.75em;
+}
+.numbers ul li:nth-child(3) {
+  bottom: 0;
+  left: 50%;
+  margin-left: -0.75em;
+}
+.numbers ul li:nth-child(4) {
+  left: 0;
+  top: 50%;
+  margin-top: -0.75em;
+}
+.clockwise .center, .support {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #837874;
+  background: radial-gradient(circle, #fff, #837874 97%, #b4b2aa);
+  background: -webkit-radial-gradient(circle, #fff, #837874 97%, #b4b2aa);
+  background: -moz-radial-gradient(circle, #fff, #837874 97%, #b4b2aa);
+  background: -o-radial-gradient(circle, #fff, #837874 97%, #b4b2aa);
+  background-position: 50% -12px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+.clockwise .center {
+  top: 50%;
+  left: 50%;
+  margin: -5px 0 0 -5px;
+  z-index: 4;
+}
+.support {
+  top: -260px;    /* 这个设置比较巧妙，算是一个技巧 */
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+.support .dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  z-index: 1;
+  border-radius: 50%;
+  background: #837874;
+  background: radial-gradient(circle, #fff, #837874 97%, #b4b2aa);
+  background: -webkit-radial-gradient(circle, #fff, #837874 97%, #b4b2aa);
+  background: -moz-radial-gradient(circle, #fff, #837874 97%, #b4b2aa);
+  background: -o-radial-gradient(circle, #fff, #837874 97%, #b4b2aa);
+  background-position: 50% -12px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+.support::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 4px;
+  width: 4px;
+  height: 100px;
+  transform-origin: 50% 0;
+  transform: rotate(38deg);
+  background: #f3f3f3;
+  background: linear-gradient(to right, #f3f3f3, #fff);
+  background: -webkit-linear-gradient(left, #f3f3f3, #fff);
+  background: -moz-linear-gradient(right, #f3f3f3, #fff);
+  background: -o-linear-gradient(right, #f3f3f3, #fff);
+  box-shadow: 4px 3px 3px rgba(0, 0, 0, 0.2), inset 1px 0 4px rgba(0, 0, 0, 0.2);
+}
+.support::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 2px;
+  width: 4px;
+  height: 100px;
+  transform-origin: 50% 0;
+  transform: rotate(-38deg);
+  background: #f3f3f3;
+  background: linear-gradient(to right, #f3f3f3, #fff);
+  background: -webkit-linear-gradient(left, #f3f3f3, #fff);
+  background: -moz-linear-gradient(right, #f3f3f3, #fff);
+  background: -o-linear-gradient(right, #f3f3f3, #fff);
+  box-shadow: -2px 3px 3px rgba(0, 0, 0, 0.2), inset 1px 0 4px rgba(0, 0, 0, 0.2);
+}
+[class^="hand-"] {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 100% 100% 5px 5px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+}
+.hand-second {
+  top: 18px;
+  width: 2px;
+  height: 78px;
+  margin-left: -1px;
+  z-index: 1;
+  transform-origin: 50% 100%;
+  background: #f16e54;
+}
+.hand-minute {
+  top: 26px;
+  width: 6px;
+  height: 88px;
+  margin-left: -3px;
+  transform-origin: 50% 80%;
+  background: #68645b;
+}
+.hand-hour {
+  top: 56px;
+  width: 6px;
+  height: 50px;
+  margin-left: -3px;
+  transform-origin: 50% 40px;
+  background: #68645b;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
